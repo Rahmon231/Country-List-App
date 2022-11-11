@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                 call: Call<List<CountryResponse>>,
                 response: Response<List<CountryResponse>>
             ) {
-                Log.d("CheckNigeria", "onResponse: ${response.body()?.get(0)?.region}")
+                Log.d("CheckNigeria", "onResponse: ${response.body()?.get(0)?.flags?.png}")
             }
 
             override fun onFailure(call: Call<List<CountryResponse>>, t: Throwable) {
