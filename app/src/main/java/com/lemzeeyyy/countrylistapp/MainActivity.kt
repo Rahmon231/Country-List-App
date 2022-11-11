@@ -29,20 +29,20 @@ class MainActivity : AppCompatActivity() {
 
         val call1 : Call<List<CountryResponse>> = apiCall.getAllCountries()
 
-//        call.enqueue(object  : Callback<List<CountryResponse>>{
-//            override fun onResponse(
-//                call: Call<List<CountryResponse>>,
-//                response: Response<List<CountryResponse>>
-//            ) {
-//                Log.d("CheckNigeria", "onResponse: ${response.body()?.get(0)?.region}")
-//            }
-//
-//            override fun onFailure(call: Call<List<CountryResponse>>, t: Throwable) {
-//                Log.d("Response Failure", "onFailure: ${t.message
-//                }")
-//            }
-//
-//        })
+        call.enqueue(object  : Callback<List<CountryResponse>>{
+            override fun onResponse(
+                call: Call<List<CountryResponse>>,
+                response: Response<List<CountryResponse>>
+            ) {
+                Log.d("CheckNigeria", "onResponse: ${response.body()?.get(0)?.region}")
+            }
+
+            override fun onFailure(call: Call<List<CountryResponse>>, t: Throwable) {
+                Log.d("Response Failure", "onFailure: ${t.message
+                }")
+            }
+
+        })
 
 
         call1.enqueue(object : Callback<List<CountryResponse>>{
