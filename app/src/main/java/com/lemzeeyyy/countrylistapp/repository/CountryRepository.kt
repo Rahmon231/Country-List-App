@@ -1,9 +1,8 @@
-package com.lemzeeyyy.countrylistapp
+package com.lemzeeyyy.countrylistapp.repository
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.lemzeeyyy.countrylistapp.API.CountryApiClient
-import com.lemzeeyyy.countrylistapp.model.CountryResponse
+import com.lemzeeyyy.countrylistapp.response.CountryResponse
 
 class CountryRepository {
 
@@ -17,7 +16,7 @@ class CountryRepository {
 
     companion object{
         private var instance: CountryRepository? = null
-       fun getInstance() : CountryRepository{
+       fun getInstance() : CountryRepository {
            if (instance == null){
                instance = CountryRepository()
            }

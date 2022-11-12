@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailsActivity">
+    android:background="#000F24"
+    tools:context=".activities.DetailsActivity">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -18,6 +19,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/country_flag"
             android:layout_marginBottom="10dp"
             />
@@ -32,12 +34,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name:"
+                android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name:"
+                android:textColor="@color/white"
                 android:textSize="25sp"
                 android:id="@+id/country_name"
                 android:layout_marginLeft="5dp"
@@ -49,12 +53,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
+
             android:id="@+id/country_language_layout"
             android:layout_below="@id/country_name_layout">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textColor="@color/white"
                 android:text="Language:"
                 android:textSize="25sp"
                 android:textStyle="bold"/>
@@ -62,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Language:"
-
+                android:textColor="@color/white"
                 android:textSize="25sp"
                 android:id="@+id/country_language"
                 android:layout_marginLeft="5dp"
@@ -78,7 +83,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textColor="@color/white"
                 android:text="Region:"
                 android:textSize="25sp"
                 android:textStyle="bold"/>
@@ -86,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Region:"
-
+                android:textColor="@color/white"
                 android:textSize="25sp"
                 android:id="@+id/country_region"
                 android:layout_marginLeft="5dp"
@@ -103,7 +108,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textColor="@color/white"
                 android:text="SubRegion:"
                 android:textSize="25sp"
                 android:textStyle="bold"/>
@@ -111,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SUbRegion"
-
+                android:textColor="@color/white"
                 android:textSize="25sp"
                 android:id="@+id/country_sub_region"
                 android:layout_marginLeft="5dp"
@@ -130,12 +135,14 @@
                 android:layout_height="wrap_content"
                 android:text="Currrency:"
                 android:textSize="25sp"
+                android:textColor="@color/white"
                 android:textStyle="bold"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Currency"
                 android:textSize="25sp"
+                android:textColor="@color/white"
                 android:id="@+id/country_currency"
                 android:layout_marginLeft="5dp"
                 android:textStyle="italic"/>

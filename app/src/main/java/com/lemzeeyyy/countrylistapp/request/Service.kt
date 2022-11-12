@@ -1,4 +1,4 @@
-package com.lemzeeyyy.countrylistapp
+package com.lemzeeyyy.countrylistapp.request
 
 import com.lemzeeyyy.countrylistapp.API.CountryApi
 import com.lemzeeyyy.countrylistapp.utils.Credentials

@@ -1,4 +1,4 @@
-package com.lemzeeyyy.countrylistapp
+package com.lemzeeyyy.countrylistapp.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -11,7 +11,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.lemzeeyyy.countrylistapp.model.CountryResponse
+import com.lemzeeyyy.countrylistapp.activities.DetailsActivity
+import com.lemzeeyyy.countrylistapp.R
+import com.lemzeeyyy.countrylistapp.clickListener.CountryClickListener
+import com.lemzeeyyy.countrylistapp.response.CountryResponse
 
 class CountryListAdapter(): RecyclerView.Adapter<CountryListAdapter.CountryViewHolder>() {
 
@@ -64,7 +67,7 @@ class CountryListAdapter(): RecyclerView.Adapter<CountryListAdapter.CountryViewH
             countryClickListener?.onBookClickListener(position)
             val bundle:Bundle = Bundle()
             bundle.putParcelable("key", data[position])
-            val intent:Intent = Intent(context,DetailsActivity::class.java)
+            val intent:Intent = Intent(context, DetailsActivity::class.java)
             intent.putExtra("bund",bundle)
             context.startActivity(intent)
 

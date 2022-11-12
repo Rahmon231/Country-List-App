@@ -1,9 +1,8 @@
-package com.lemzeeyyy.countrylistapp
+package com.lemzeeyyy.countrylistapp.viewmodel
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.lemzeeyyy.countrylistapp.model.CountryResponse
+import com.lemzeeyyy.countrylistapp.repository.CountryRepository
+import com.lemzeeyyy.countrylistapp.response.CountryResponse
 
 class CountryViewModel  {
     private var countryRepository: CountryRepository? = null

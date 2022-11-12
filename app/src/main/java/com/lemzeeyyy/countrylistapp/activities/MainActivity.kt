@@ -1,15 +1,20 @@
-package com.lemzeeyyy.countrylistapp
+package com.lemzeeyyy.countrylistapp.activities
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import java.lang.Exception
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lemzeeyyy.countrylistapp.API.CountryApiClient
-import com.lemzeeyyy.countrylistapp.model.CountryResponse
+import com.lemzeeyyy.countrylistapp.R
+import com.lemzeeyyy.countrylistapp.adapter.CountryListAdapter
+import com.lemzeeyyy.countrylistapp.clickListener.CountryClickListener
+import com.lemzeeyyy.countrylistapp.repository.CountryRepository
+import com.lemzeeyyy.countrylistapp.response.CountryResponse
+import com.lemzeeyyy.countrylistapp.viewmodel.CountryViewModel
 
 
 class MainActivity : AppCompatActivity(), CountryClickListener {
@@ -20,7 +25,7 @@ class MainActivity : AppCompatActivity(), CountryClickListener {
     lateinit var searchView : SearchView
     lateinit var recyclerA : RecyclerView
      var responses: List<CountryResponse> = emptyList()
-    var adapter:CountryListAdapter = CountryListAdapter(responses ,this@MainActivity)
+    var adapter: CountryListAdapter = CountryListAdapter(responses ,this@MainActivity)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,13 +55,22 @@ class MainActivity : AppCompatActivity(), CountryClickListener {
     fun getAllCountries(){
        initializeViewModel()
         countryViewModel.getAllCountries().observe(this, Observer {
-            for (i in 0..it!!.size) {
-                if (it != null) {
-                    setupRecyclerView(it)
+            try {
+                for (i in 0..it!!.size) {
+                    if (it != null) {
+
+                        setupRecyclerView(it)
+                    }
+
                 }
+            }catch (e:Exception){
+                e.printStackTrace()
             }
+
         })
     }
+
+
     fun setupRecyclerView(it:List<CountryResponse>){
         adapter.setCountryList(it)
         recyclerA.layoutManager=LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
@@ -67,12 +81,19 @@ class MainActivity : AppCompatActivity(), CountryClickListener {
         initializeViewModel()
        // countryViewModel.searchCountryApi(query)
         searchView.setOnSearchClickListener {
+            countryViewModel.getCountries()
 
         }
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 countryViewModel.searchCountryApi(query)
                 countryViewModel.getCountries().observe(this@MainActivity, Observer {
+                    for (i in 0..it!!.size) {
+                        if (it != null) {
+                            setupRecyclerView(it)
+                        }
+                    }
+                  //  setupRecyclerView(it!!)
                     Log.d("CheckSearchedQUERY", "onQueryTextSubmit: ${it?.get(0)?.capital?.get(0)}")
                 })
 
@@ -84,7 +105,21 @@ class MainActivity : AppCompatActivity(), CountryClickListener {
             }
         })
         searchView.setOnCloseListener {
+            countryViewModel.setAllCountries()
+            countryViewModel.getAllCountries().observe(
+                this, Observer {
+                    try {
+                        for (i in 0..it!!.size) {
+                            if (it != null) {
 
+                                setupRecyclerView(it)
+                            }
+                        }
+                    }catch (e:Exception){
+                        e.printStackTrace()
+                    }
+                }
+            )
             false
         }
 

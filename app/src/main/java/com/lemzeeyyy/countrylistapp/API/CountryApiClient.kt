@@ -3,8 +3,9 @@ package com.lemzeeyyy.countrylistapp.API
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.lemzeeyyy.countrylistapp.Service
-import com.lemzeeyyy.countrylistapp.model.CountryResponse
+import com.lemzeeyyy.countrylistapp.request.Service
+import com.lemzeeyyy.countrylistapp.response.CountryResponse
+import com.lemzeeyyy.countrylistapp.utils.AppExecutor
 import retrofit2.Call
 import retrofit2.Response
 import java.io.IOException

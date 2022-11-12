@@ -1,4 +1,4 @@
-package com.lemzeeyyy.countrylistapp.API
+package com.lemzeeyyy.countrylistapp.utils
 
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService

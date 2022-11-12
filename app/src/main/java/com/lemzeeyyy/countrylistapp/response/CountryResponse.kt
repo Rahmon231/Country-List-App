@@ -1,9 +1,13 @@
-package com.lemzeeyyy.countrylistapp.model
+package com.lemzeeyyy.countrylistapp.response
 
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import com.lemzeeyyy.countrylistapp.model.Currencies
+import com.lemzeeyyy.countrylistapp.model.Flags
+import com.lemzeeyyy.countrylistapp.model.Languages
+import com.lemzeeyyy.countrylistapp.model.Name
 
 class CountryResponse() : Parcelable {
     @SerializedName("name")

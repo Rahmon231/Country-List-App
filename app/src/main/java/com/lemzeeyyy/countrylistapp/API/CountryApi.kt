@@ -1,6 +1,6 @@
 package com.lemzeeyyy.countrylistapp.API
 
-import com.lemzeeyyy.countrylistapp.model.CountryResponse
+import com.lemzeeyyy.countrylistapp.response.CountryResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
