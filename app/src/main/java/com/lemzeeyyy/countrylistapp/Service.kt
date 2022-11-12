@@ -1,6 +1,5 @@
 package com.lemzeeyyy.countrylistapp
 
-import android.net.wifi.hotspot2.pps.Credential
 import com.lemzeeyyy.countrylistapp.API.CountryApi
 import com.lemzeeyyy.countrylistapp.utils.Credentials
 import retrofit2.Retrofit
@@ -16,7 +15,8 @@ class Service {
        private val retrofit = retrofitBuilder.build()
 
        private val countryApi: CountryApi = retrofit.create(CountryApi::class.java)
-       fun getCountryApi(): CountryApi? {
+
+       fun getCountryApi(): CountryApi {
            return countryApi
        }
    }
