@@ -55,7 +55,8 @@ class CountryApiClient {
 
         val myHandler: Future<*> =
             AppExecutor.getInstance().networkIO()!!.submit(retrieveCountryRunnable)
-        AppExecutor.getInstance().networkIO()!!.schedule(Runnable { //Canceling the retrofit call
+        AppExecutor.getInstance().networkIO()!!.schedule(Runnable {
+            //Canceling the retrofit call
             myHandler.cancel(true)
         }, 5000, TimeUnit.MILLISECONDS)
     }
@@ -118,7 +119,6 @@ class CountryApiClient {
             cancelRequest = true
         }
 
-
     }
 
     private inner class RetrieveAllCountryRunnable : Runnable{
@@ -163,8 +163,6 @@ class CountryApiClient {
             Log.d("CancelReq", "setCancelRequest: Cancelling Search Request")
             cancelRequest = true
         }
-
-
     }
 
 }

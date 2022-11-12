@@ -38,7 +38,7 @@ class DetailsActivity : AppCompatActivity() {
 
     private fun initializeWidgets() {
         flag = findViewById(R.id.country_flag)
-        countryName = findViewById(R.id.country_name)
+        countryName = findViewById(R.id.name)
         language = findViewById(R.id.country_language)
         region = findViewById(R.id.country_region)
         subregion = findViewById(R.id.country_sub_region)
