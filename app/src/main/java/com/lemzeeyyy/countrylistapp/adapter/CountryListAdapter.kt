@@ -62,7 +62,7 @@ class CountryListAdapter(): RecyclerView.Adapter<CountryListAdapter.CountryViewH
         }
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(context, data.get(position).name?.common, Toast.LENGTH_LONG)
+            Toast.makeText(context, data.get(position).population.toString(), Toast.LENGTH_LONG)
                 .show()
             countryClickListener?.onBookClickListener(position)
             val bundle:Bundle = Bundle()

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000F24"
+
     tools:context=".activities.MainActivity">
 
    <!-- <LinearLayout
@@ -132,16 +132,17 @@
         android:layout_height="wrap_content"
         android:text="Explore"
 
-        android:textColor="@color/white"
+
         app:layout_constraintBottom_toBottomOf="@+id/day_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/day_button" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/day_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:text="Enable dark mode"
+        android:textColor="@color/white"
         android:src="@drawable/ic_light_mode"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

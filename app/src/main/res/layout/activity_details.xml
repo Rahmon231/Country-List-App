@@ -146,6 +146,31 @@
                 android:id="@+id/country_currency"
                 android:layout_marginLeft="5dp"
                 android:textStyle="italic"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:id="@+id/country_population_layout"
+            android:layout_below="@id/country_currency_layout">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Population:"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:id="@+id/country_population"
+                android:layout_marginLeft="5dp"
+                android:textStyle="italic"/>
+
         </LinearLayout>
     </RelativeLayout>
 

@@ -2,9 +2,14 @@ package com.lemzeeyyy.countrylistapp.activities
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.ImageButton
 import java.lang.Exception
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.SwitchCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +29,8 @@ class MainActivity : AppCompatActivity(), CountryClickListener {
     lateinit var apiClient: CountryApiClient
     lateinit var searchView : SearchView
     lateinit var recyclerA : RecyclerView
+    lateinit var btn: SwitchCompat
+    var darkMode: String? = null
      var responses: List<CountryResponse> = emptyList()
     var adapter: CountryListAdapter = CountryListAdapter(responses ,this@MainActivity)
 
@@ -31,16 +38,37 @@ class MainActivity : AppCompatActivity(), CountryClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         initializeWidgets()
+        darkMode()
         initializeViewModel()
         getAllCountries()
         setupSearchView()
 
     }
 
+    fun darkMode(){
+        btn.setOnCheckedChangeListener { _, isChecked ->
+            // if the button is checked, i.e., towards the right or enabled
+            // enable dark mode, change the text to disable dark mode
+            // else keep the switch text to enable dark mode
+            if (btn.isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                btn.text = "Disable dark mode"
+                darkMode = "Disable dark Mode"
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                btn.text = "Enable dark mode"
+                darkMode = "Enable dark Mode"
+            }
+        }
+
+    }
+
     fun initializeWidgets(){
         searchView = findViewById(R.id.search_list)
         recyclerA = findViewById(R.id.countries_recyclerview)
+        btn = findViewById(R.id.day_button)
     }
 
     fun initializeViewModel(){

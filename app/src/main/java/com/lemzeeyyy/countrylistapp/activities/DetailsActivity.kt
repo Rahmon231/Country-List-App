@@ -18,6 +18,7 @@ class DetailsActivity : AppCompatActivity() {
     lateinit var region: TextView
     lateinit var subregion: TextView
     lateinit var currency: TextView
+    lateinit var pop: TextView
     lateinit var bundle: Bundle
     lateinit var countryResponse: CountryResponse
 
@@ -42,6 +43,7 @@ class DetailsActivity : AppCompatActivity() {
         region = findViewById(R.id.country_region)
         subregion = findViewById(R.id.country_sub_region)
         currency = findViewById(R.id.country_currency)
+        pop = findViewById(R.id.country_population)
 
     }
     private fun setWidgets(){
@@ -53,7 +55,9 @@ class DetailsActivity : AppCompatActivity() {
             language.setText(countryResponse.languages!!.eng)
             region.setText(countryResponse.region)
             subregion.setText(countryResponse.subregion)
+            pop.setText(countryResponse.population.toString())
             currency.setText(countryResponse.currencies!!.bbd!!.name)
+
 
 
         }catch (e:Exception){

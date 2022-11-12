@@ -34,6 +34,10 @@ class CountryResponse() : Parcelable {
     @Expose
     var languages: Languages? = null
 
+    @SerializedName("population")
+    @Expose
+    var population: Int = 0
+
     @SerializedName("flags")
     @Expose
     var flags: Flags? = null
@@ -45,6 +49,7 @@ class CountryResponse() : Parcelable {
         region = parcel.readString()
         subregion = parcel.readString()
         languages = parcel.readParcelable(Languages::class.java.classLoader)
+        population = parcel.readInt()
         flags = parcel.readParcelable(Flags::class.java.classLoader)
     }
 
@@ -55,6 +60,7 @@ class CountryResponse() : Parcelable {
         parcel.writeString(region)
         parcel.writeString(subregion)
         parcel.writeParcelable(languages, flag)
+        parcel.writeInt(population)
         parcel.writeParcelable(flags, flag)
     }
 
