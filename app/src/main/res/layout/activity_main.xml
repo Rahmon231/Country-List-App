@@ -7,7 +7,7 @@
     android:background="#000F24"
     tools:context=".MainActivity">
 
-    <LinearLayout
+   <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="4dp"
@@ -125,6 +125,64 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/recycler_C"
         app:layout_constraintTop_toBottomOf="@id/recycler_B"/>
+         -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Explore"
+
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/day_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/day_button" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/day_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/ic_light_mode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_list"
+        android:backgroundTint="#98A2B3"
+        app:defaultQueryHint="Search Country"
+        android:background="?android:attr/windowBackground"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/day_button"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/language"
+        android:text="En"
+        android:drawableStart="@drawable/ic_language"
+        android:contentDescription="select language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_list" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/filter"
+        android:layout_width="wrap_content"
+        android:contentDescription="filter"
+        android:layout_height="wrap_content"
+        android:text="Filter"
+        android:drawableStart="@drawable/ic_filter"
+        app:layout_constraintBottom_toBottomOf="@+id/language"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/language" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/countries_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/language" />
 
 
 
