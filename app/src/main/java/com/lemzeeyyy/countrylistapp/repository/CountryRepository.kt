@@ -31,7 +31,7 @@ class CountryRepository {
 
     fun setCountryApi(query: String) {
         mQuery = query
-        CountryApiClient.getInstance()!!.searchCountryApi(query)
+        CountryApiClient.getInstance().searchCountryApi(query)
     }
 
     fun setAllCountriesApi(){

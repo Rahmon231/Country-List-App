@@ -51,12 +51,16 @@ class DetailsActivity : AppCompatActivity() {
             Glide.with(this@DetailsActivity)
                 .load(countryResponse.flags?.png)
                 .into(flag);
-            countryName.setText(countryResponse.name!!.common)
-            language.setText(countryResponse.languages!!.eng)
+            countryName.setText(countryResponse.name!!.official)
+            language.setText(countryResponse.languages.toString())
             region.setText(countryResponse.region)
             subregion.setText(countryResponse.subregion)
             pop.setText(countryResponse.population.toString())
             currency.setText(countryResponse.currencies!!.bbd!!.name)
+
+
+
+
 
 
 

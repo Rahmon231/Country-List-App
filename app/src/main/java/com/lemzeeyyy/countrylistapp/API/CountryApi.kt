@@ -14,4 +14,9 @@ interface CountryApi {
 
     @GET("v3.1/all")
     fun getAllCountries (): Call<List<CountryResponse>>
+
+    @GET("v3.1/lang/{lang}")
+    fun searchByLanguage(
+        @Path("lang") query: String?
+    ):Call<List<CountryResponse>>
 }

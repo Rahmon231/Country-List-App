@@ -64,4 +64,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
     // Lifecycles only (without ViewModel or LiveData)
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
+
+
+    // Kotlin
+    implementation("androidx.fragment:fragment-ktx:1.5.4")
 }
