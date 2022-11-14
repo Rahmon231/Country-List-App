@@ -42,5 +42,14 @@ class CountryRepository {
         return countryApiClient.getAllCountries()
     }
 
+    fun getRegionalCountries(): LiveData<List<CountryResponse>?> {
+        return countryApiClient.getCountriesByRegion()
+    }
+
+    fun setRegionalCountryApi(region: String) {
+        mQuery = region
+        CountryApiClient.getInstance().searchCountryByRegionApi(region)
+    }
+
 
 }

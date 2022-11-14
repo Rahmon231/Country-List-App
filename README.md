@@ -6,10 +6,10 @@ API V3](https://restcountries.com/#api-endpoints-v3-all)
 The aim of this project is to provide list of all countries and basic information about the countries to the user.
 
 ## Tech Stack
-- ![kotlin]
+![kotlin]
 - (https://kotlinlang.org/) -  official programming language for Android development.
 - 
-- ![retrofit]
+![retrofit]
 - (https://square.github.io/retrofit/) - A type-safe HTTP client for Android and Java.
 - 
 -- ![ViewModel] (https://developer.android.com/topic/libraries/architecture/viewmodel) 
@@ -23,10 +23,10 @@ The aim of this project is to provide list of all countries and basic informatio
   ![SearchView] 
 - (https://developer.android.com/) - A widget is a view that provides a search interface for users to search through data.
 
-![Adapters]
+ ![Adapters]
 (https://developer.android.com/) - An Android is a class that helps you bind data from a source, such as an array, list, or cursor, to a view.
 
-- ![RecyclerView]
+![RecyclerView]
 - (https://developer.android.com/) - An Android ViewGroup that allows you to display a large number of items in a vertically scrolling list.
 
 #App_Features

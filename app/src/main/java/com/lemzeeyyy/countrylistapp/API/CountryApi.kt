@@ -19,4 +19,11 @@ interface CountryApi {
     fun searchByLanguage(
         @Path("lang") query: String?
     ):Call<List<CountryResponse>>
+
+   // https://restcountries.com/v3.1/region/{region}
+
+    @GET("v3.1/region/{region}")
+    fun filterByRegion(
+        @Path("region") query: String?
+    ):Call<List<CountryResponse>>
 }

@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.SwitchCompat
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +21,7 @@ import com.lemzeeyyy.countrylistapp.R
 import com.lemzeeyyy.countrylistapp.adapter.CountryListAdapter
 import com.lemzeeyyy.countrylistapp.adapter.SearchCountryListAdapter
 import com.lemzeeyyy.countrylistapp.clickListener.CountryClickListener
+import com.lemzeeyyy.countrylistapp.fragments.FilterFragment
 import com.lemzeeyyy.countrylistapp.response.CountryResponse
 import com.lemzeeyyy.countrylistapp.viewmodel.CountryViewModel
 
@@ -30,6 +34,8 @@ class MainActivity : AppCompatActivity(), CountryClickListener {
     lateinit var search_rv:RecyclerView
     lateinit var btn: SwitchCompat
     lateinit var langBtn: AppCompatButton
+    lateinit var filterBtn:AppCompatButton
+    lateinit var layout: ConstraintLayout
     var darkMode: String? = null
      var responses: List<CountryResponse> = emptyList()
     var adapter: CountryListAdapter = CountryListAdapter(responses ,this@MainActivity)
@@ -48,6 +54,9 @@ class MainActivity : AppCompatActivity(), CountryClickListener {
             displayBottomSheetFragment()
 
         }
+        filterBtn.setOnClickListener {
+            displayFilterFragment()
+        }
 
 
     }
@@ -60,6 +69,16 @@ class MainActivity : AppCompatActivity(), CountryClickListener {
 
         dialog.setCancelable(true)
         dialog.show(supportFragmentManager,"LanguageFragment")
+    }
+
+    private fun displayFilterFragment() {
+        layout.visibility = View.GONE
+       supportFragmentManager.commit {
+           setReorderingAllowed(true)
+           add<FilterFragment>(R.id.fragment_container_view)
+       }
+
+
     }
 
     private fun darkMode(){
@@ -85,6 +104,8 @@ class MainActivity : AppCompatActivity(), CountryClickListener {
         recyclerA = findViewById(R.id.countries_recyclerview)
         btn = findViewById(R.id.day_button)
         langBtn = findViewById(R.id.language)
+        filterBtn = findViewById(R.id.filter)
+        layout = findViewById(R.id.constraint_layout)
 
     }
 

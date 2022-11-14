@@ -17,12 +17,18 @@ class CountryApiClient {
 
      private var allCountriesObject: MutableLiveData<List<CountryResponse>?>
 
+     private var countryByRegionObject : MutableLiveData<List<CountryResponse>?>
+
+
+
     private var retrieveCountryRunnable: RetrieveCountryRunnable? = null
     private var allCountryRunnable: RetrieveAllCountryRunnable? = null
+    private var countryByRegionRunnable : RetrieveCountryByRegionRunnable? = null
 
     constructor() {
         allCountriesObject = MutableLiveData()
         countryObject = MutableLiveData()
+        countryByRegionObject = MutableLiveData()
 
     }
 
@@ -44,6 +50,10 @@ class CountryApiClient {
 
     fun getAllCountries(): LiveData<List<CountryResponse>?>{
         return allCountriesObject
+    }
+
+    fun getCountriesByRegion() : LiveData<List<CountryResponse>?>{
+        return countryByRegionObject
     }
 
 
@@ -74,6 +84,21 @@ class CountryApiClient {
         }, 5000, TimeUnit.MILLISECONDS)
 
     }
+
+    fun searchCountryByRegionApi(region: String) {
+        if (countryByRegionRunnable != null) {
+            countryByRegionRunnable = null
+        }
+        countryByRegionRunnable = RetrieveCountryByRegionRunnable(region)
+
+        val myHandler: Future<*> =
+            AppExecutor.getInstance().networkIO()!!.submit(countryByRegionRunnable)
+        AppExecutor.getInstance().networkIO()!!.schedule(Runnable {
+            //Canceling the retrofit call
+            myHandler.cancel(true)
+        }, 5000, TimeUnit.MILLISECONDS)
+    }
+
 
     private inner class RetrieveCountryRunnable : Runnable{
         lateinit var  query: String
@@ -111,6 +136,52 @@ class CountryApiClient {
         }
         fun getSearchedCountry(query: String): Call<List<CountryResponse>> {
             return Service.getCountryApi().searchCountries(query);
+        }
+
+
+        private fun setCancelRequest() {
+            Log.d("CancelReq", "setCancelRequest: Cancelling Search Request")
+            cancelRequest = true
+        }
+
+    }
+
+    private inner class RetrieveCountryByRegionRunnable : Runnable{
+        lateinit var  region: String
+        var cancelRequest: Boolean=false
+
+
+        constructor(region: String) {
+            this.region = region
+            cancelRequest = false;
+        }
+
+        override fun run() {
+            try {
+                val response: Response<*> = getRegionalCountry(region).execute()
+
+                if (cancelRequest) {
+                    return
+                }
+
+                if (response.code() == 200) {
+                    val countryResponse = response.body() as List<CountryResponse>?
+                    countryByRegionObject.postValue(countryResponse)
+                }
+
+                else {
+                    Log.d("CountryClientApiError", "run: ${response.errorBody().toString()}")
+                }
+
+            }catch (e : IOException){
+                e.printStackTrace()
+                countryByRegionObject.postValue(null)
+
+            }
+
+        }
+        fun getRegionalCountry(region: String): Call<List<CountryResponse>> {
+            return Service.getCountryApi().filterByRegion(region);
         }
 
 

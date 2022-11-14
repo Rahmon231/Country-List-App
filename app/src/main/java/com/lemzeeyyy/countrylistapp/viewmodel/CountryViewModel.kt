@@ -26,4 +26,11 @@ class CountryViewModel  {
     fun getAllCountries(): LiveData<List<CountryResponse>?>{
         return countryRepository!!.getAllCountries()
     }
+    fun setRegionalCountries(region: String?) {
+        countryRepository!!.setRegionalCountryApi(region!!)
+    }
+
+    fun getRegionalCountries(): LiveData<List<CountryResponse>?> {
+        return countryRepository!!.getRegionalCountries()
+    }
 }
