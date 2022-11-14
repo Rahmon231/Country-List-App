@@ -56,9 +56,9 @@ I learnt alot because I'm new to kotlin
 
 
 ##Appetizer_Link 
-https://appetize.io/app/ogupjomttkky6zbthq4tmi26sm
+https://appetize.io/app/exnvpifnhj7nsno2rz7uzzxure
 
-##ApkLink
+##Apk Link
 https://drive.google.com/file/d/1wbHwAveR6xCOOCiSccy7LR4S4FMyOhcV/view?usp=sharing
 
 
